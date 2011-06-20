@@ -76,6 +76,35 @@ section {
   -webkit-text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
 }
+
+.block-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  -moz-border-radius: 0.083em 0.083em 0 0;
+  border-radius: 0.083em 0.083em 0 0;
+  border-radius: 0.083em 0.083em 0 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Sans", Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  height: 3em;
+  line-height: 3em;
+  border-top: 1px solid #9BD2EE;
+  border-bottom: 1px solid #B5B3B4;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background: -moz-linear-gradient(top,#6DC3E6,#0C5FA3);
+  background: -webkit-gradient(linear,left top, left bottom,from(#6DC3E6),to(#0C5FA3));
+  text-align: center;
+  color: white;
+  -moz-text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+  -webkit-text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
 .block-header-error {
   margin: -0.917em -0.833em 0.833em;
   -moz-border-radius: 0.083em 0.083em 0 0;

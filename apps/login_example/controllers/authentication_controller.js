@@ -1,6 +1,11 @@
 LoginExample.authenticationController = SC.ObjectController.create({
-  hasError: NO,
-  errorMessage: '',
+  hasError: false,
+  errorMessage: null,
+
+  newLoginSession: function() {
+    this.set('hasError', false);
+    this.set('errorMessage', null);
+  },
 
   loginFailed: function(errorMessage) {
     this.set('hasError', true);

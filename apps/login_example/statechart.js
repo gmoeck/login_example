@@ -4,6 +4,7 @@ LoginExample.statechart = SC.Statechart.create({
     initialSubstate: 'awaitingUserInput',
 
     enterState: function() {
+      LoginExample.userController.set('content', null);
       this.set('pane', SC.TemplatePane.append({ layerId: 'login_page', templateName: 'login_page'}));
     },
 
@@ -42,6 +43,11 @@ LoginExample.statechart = SC.Statechart.create({
 
     exitState: function() {
       this.get('pane').remove();
+    },
+
+    logout: function() {
+      LoginExample.authenticationController.newLoginSession();
+      this.gotoState('notLoggedIn');
     }
   })
 });

@@ -1,3 +1,9 @@
 {{#view LoginExample.DashboardView}}
-  <div class="block-header">Welcome {{user.firstName}}</div>
+  <div class="block-header">
+    Welcome {{user.firstName}}
+  </div>
+  <div class="spacer"></div>
+  {{#view SC.Button target="parentView" action="logout" class="block-footer"}}
+    Logout
+  {{/view}}
 {{/view}}
