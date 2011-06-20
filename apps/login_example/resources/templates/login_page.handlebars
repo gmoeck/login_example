@@ -1,0 +1,19 @@
+<section id="login-block">
+  <div class="block-border">
+    {{#view LoginExample.LoginFormView class="block-content"}}
+      <div {{bindAttr class="messageClass"}}>{{loginMessage}}</div>
+        <div class="form">
+          {{#view SC.TextField valueBinding=".parentView.userName" class="inline-small-label"}}
+            <label for="login"><span class="big">User name</span></label>
+            <input type="text" name="login" id="login" class="full-width" value="">
+          {{/view}}
+          {{#view SC.TextField valueBinding=".parentView.password" class="inline-small-label"}}
+            <label for="password"><span class="big">Password</span></label>
+            <input type="password" name="pass" id="password" class="full-width" value="">
+          {{/view}}
+          {{#view SC.Button id="login-button" target="parentView" action="loginButtonPressed"}}Login{{/view}}
+        </div>
+      </div>
+    {{/view}}
+  </div>
+</section>
