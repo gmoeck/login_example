@@ -21,11 +21,12 @@ LoginExample.statechart = SC.Statechart.create({
 
     authenticatingUser: SC.State.extend({
       enterState: function(userInformation) {
-        LoginExample.authenticationDataSource.attemptLogin(userInformation.userName, userInformation.password);
+        LoginExample.authenticationManager.attemptLogin(userInformation.userName, userInformation.password);
       },
 
-      loginSuccessful: function(userId) {
-        this.gotoState('loggedIn', userId);
+      loginSuccessful: function(user) {
+        LoginExample.userController.set('content', user);
+        this.gotoState('loggedIn', user);
       },
 
       loginFailed: function(errorMessage) {
@@ -36,18 +37,23 @@ LoginExample.statechart = SC.Statechart.create({
   }),
 
   loggedIn: SC.State.extend({
-    enterState: function(userId) {
-      this.set('pane', SC.TemplatePane.append({layerId: 'dashboard', templateName: 'dashboard'}));
-      LoginExample.userController.setupUser(userId);
-    },
 
-    exitState: function() {
-      this.get('pane').remove();
-    },
+    initialSubstate: 'viewingDashboard',
 
     logout: function() {
       LoginExample.authenticationController.newLoginSession();
       this.gotoState('notLoggedIn');
-    }
+    },
+
+
+    viewingDashboard: SC.State.extend({
+      enterState: function() {
+        this.set('pane', SC.TemplatePane.append({layerId: 'dashboard', templateName: 'dashboard'}));
+      },
+
+      exitState: function() {
+        this.get('pane').remove();
+      }
+    })
   })
 });
